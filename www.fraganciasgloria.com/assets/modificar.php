@@ -1,0 +1,82 @@
+<?php
+/*
+ * 
+ * Copyleft 2022 Pepe Sánchez 
+ *
+ * 
+ * 
+ */
+session_start();
+if(!isset($_SESSION["rol"])){
+	header("Location:iniSes.php");
+}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Modificar artículos</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.38" />
+    <link rel="stylesheet" href="./css/style.css">
+	<style>
+		header{
+			position: static;
+		}
+	</style>
+</head>
+
+<body>
+<?php
+	require_once("./plantillas/segundo_header.php");
+?>
+    <div class="alta">
+	<h1>Introduce los datos de la fragancia a modificar</h1>
+	<form method="post">
+		<p>Número de referencia</p>
+		<input type="number" name="numref">
+        <br>
+		<p>Nuevo número de referencia</p>
+		<input type="text" name="nuevoNumref">
+		<p>Nombre</p>
+		<input type="text" name="nombre">
+		<p>Marca</p>
+		<input type="text" name="marca">
+		<p>Género</p>
+	    <select name="genero" id="genero">
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+				<option value="infantil">Infantil</option>
+            </select>
+		<input type="submit" value="Modificar" name="modificar">
+        <?php
+    if(isset($_POST["modificar"])){
+		$cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
+		$miconsulta = $cbd->query("SELECT * FROM fragancias WHERE numref = '" .$_POST["numref"]."';");
+		if($miconsulta->num_rows > 0){
+			while($fila = $miconsulta->fetch_assoc()){
+				if($fila["numref"] == $_POST["numref"]){
+					$miconsulta2 = $cbd->query("UPDATE `fragancias` SET `numref`='".$_POST["nuevoNumref"]."',`nombre`='".$_POST["nombre"]."',`marca`='".$_POST["marca"]."',`genero`='".$_POST["genero"]."' WHERE numref = ".$_POST["numref"]."");
+					echo "<p style='color:green'>Fragancia modificada con éxito</p>";
+				}
+			}
+		}else{
+		echo "<p style='color:red'>No se ha encontrado ninguna fragancia con ese número de referencia</p>";
+        }
+	}
+        ?>
+	</form>
+    </div>
+	
+	<?php 
+	require_once("./plantillas/footer.php");
+	?>
+
+	
+	
+	
+</body>
+
+</html>
+

@@ -1,0 +1,549 @@
+html, body{
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes aparecer{
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+header{
+    padding: 7px;
+    margin-left: 65px;
+    margin-top: 50px;
+    border: solid black 2px;
+    border-radius: 10px;
+    background: black;
+    color: #ffffff;
+    height: 50px;
+    width: 80%;
+    font-family: "Merriweather", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:fixed;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    animation: aparecer 2s ease-in-out forwards;
+}
+
+header h1{
+    margin-left: 15px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin-left: 10px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #bbcede;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #ffffff;
+
+}
+
+#activo{
+    color: #ffffff;
+}
+
+#colonia{
+    width: 50px;
+}
+
+#centrado{
+    margin-left: 90px;
+}
+
+.menu{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    border-radius: 10px;
+    width: 93%;
+    display: flex;
+    position: absolute;
+    top: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translatex(-300%);
+    transition: transform 0.4s;
+}
+
+.menu > *{
+    margin: 5px;
+}
+
+#hamburguesa {
+    display: none;
+  }
+
+  #icono{
+    margin-right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  #hamburguesa:checked ~ .menu {
+    transform: translatex(-2%);
+    left: 0;
+  }
+
+  header > #hamburguesa:checked {
+    border-bottom: none;
+  }
+/* Sección principal */
+main {
+    margin-top: 0;
+    width: 190vw;
+    font-family: "Poppins", sans-serif;
+    background-color: #ffffff; /* Fondo blanco */
+    animation: aparecer 2s ease-in-out forwards;
+}
+
+/* Estilo para la primera sección con el título y la imagen */
+
+
+#slideshow {
+    position: relative; /* Antes estaba en absolute */
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evita que se desborde */
+    margin-top: 20px; /* Agrega margen si es necesario */
+}
+
+#slideshow img {
+    width: 100%; /* Ajusta el tamaño */
+    max-width: 700px; /* Limita el ancho máximo */
+    height: auto;
+    display: none; /* Ocultar imágenes por defecto */
+}
+
+#slideshow img.active {
+    display: block; /* Solo muestra la imagen activa */
+}
+
+
+#texto-central, .texto-abajo {
+    position: relative;
+    z-index: 2;
+    color: #f4f4f4;
+    text-align: center;
+}
+
+#texto-central {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.texto-abajo {
+    top: 60%;
+}
+.principal {
+    position: relative;
+    overflow: hidden;
+    border: solid transparent 5px;
+    height: 140vh;
+    background: url("../images/fondo.jpg");
+    background-size: cover;
+    background-position:center ;
+    background-repeat:no-repeat;
+    
+}
+
+#texto-central{
+    font-size: 25px;
+    color: #f4f4f4;
+    text-align: center;
+    position: relative;
+    top: 50%;
+}
+
+
+
+/* Sección de texto y botón debajo de la imagen */
+.texto-abajo {
+    text-align: center; /* Aligna el texto a la izquierda */
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    top: 60%;
+}
+
+.texto-abajo p {
+    font-size: 1rem;
+    color: #f4f4f4;
+    line-height: 1.5;
+    max-width: 100%;
+}
+
+.texto-abajo .btn-primary {
+    display: inline-block;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Color azul */
+    color: #ffffff; /* Texto blanco */
+    text-decoration: none;
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Botón redondeado */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.texto-abajo .btn-primary:hover {
+    background:linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)); /* Cambio de color al pasar el ratón */
+}
+
+#cara{
+    border-top: solid lightblue 1px;
+    border-bottom: solid lightblue 1px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cara h4{
+    color: #003b7a;
+}
+
+#cara p{
+    color: #0054a8;
+}
+
+#cara h1{
+    font-size: 2em;
+}
+
+#cara img{
+    margin-top: 15px;
+    width: 700px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.cara2{
+    font-size: small;
+    height: 10rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: center;
+    border-bottom: solid lightblue 1px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+.cara2 div{
+    width: 30%;
+}
+
+.cara2 div i{
+    font-size: medium;
+    color: #0054a8;
+}
+
+.lugares{
+    margin-top: 5em;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.lugares h1{
+    width: 100vw;
+}
+
+.lugares div{
+    width: 70%;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5em;
+}
+
+.alicante{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Alicante.jpg");
+}
+
+.torrevieja{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/torrevieja.jpg");
+}
+
+.lamurada{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/la_murada.jpg");
+   
+}
+
+.lugares div a {
+    text-decoration: none;
+    color:#bbcede;
+    font-family: "Merryweather", serif;
+    font-size: 30px;
+    display: inline-block;
+    position: relative; /* Necesario para posicionar el ::after */
+}
+
+.lugares div a::after {
+    content: ''; /* Necesario para que el pseudo-elemento se renderice */
+    position: absolute;
+    left: 0; /* Comienza desde la izquierda */
+    bottom: -2px; /* Posición debajo del texto */
+    width: 0; /* Ancho inicial */
+    height: 2px; /* Grosor del subrayado */
+    
+    background-color: #ffffff; /* Color del subrayado */
+    transition: width 0.5s ease; /* Transición suave */
+}
+
+.lugares div a:hover {
+    color: #ffffff; /* Cambia el color del texto al hacer hover */
+}
+
+.lugares div a:hover::after {
+    width: 100%; /* Ancho completo al hacer hover */
+    
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Distribuye las secciones */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: black; /* Fondo azul intenso */
+    color: #0054a8; /* Texto blanco */
+    padding: 60px 80px; /* Espaciado interno */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+    position: sticky;
+    width: 190vw;
+    height: 70vh;
+}
+
+.footer-section {
+    flex: 1; /* Asegura que las secciones ocupen el mismo espacio */
+    text-align: center; /* Alinea el contenido */
+    padding: 0 10px; /* Espaciado interno */
+}
+
+.arriba{
+    border-bottom: white solid 1px;
+    padding: 20px;
+}
+
+.arriba p{
+    margin-bottom: 15px;
+}
+
+.abajo{
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-top: 15px;
+    
+}
+
+.abajo a{
+    font-size: 30px;
+}
+
+.redes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 150px;
+}
+
+a:visited{
+    color: inherit
+}
+
+.alta{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* Estilos para paginación */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+    animation: aparecer 1.5s ease-in-out forwards;
+    text-align: center;
+}
+
+.boton-pagina, .pagina-actual {
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.boton-pagina {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    color: #ffffff;
+}
+
+.boton-pagina:hover {
+    background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    color: #bbcede;
+}
+
+.pagina-actual {
+    background-color: #003b7a;
+    color: #ffffff;
+    border: 2px solid #0054a8;
+}
+
+.listado-fragancias {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 40px auto;
+    width: 90%;
+}
+
+.columna {
+    width: 45%;
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fefefe;
+    min-height: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.femenino {
+    border-top: 10px solid #d05db1;
+}
+
+.masculino {
+    border-top: 10px solid #00aaff;
+}
+
+.titulo-genero {
+    background-color: #d05db1;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.masculino .titulo-genero {
+    background-color: #00aaff;
+}
+
+.fragancia {
+    margin-bottom: 8px;
+    font-family: "Poppins", sans-serif;
+}
+
+.ref {
+    font-weight: bold;
+}
+
+.paginacion-botones {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+
+        header {
+            width: 90%; /* Ajustar a un porcentaje razonable para pantallas grandes */
+        }
+    
+        main {
+            width: 100%; /* Asegurarse de que ocupe el ancho completo del contenedor */
+        }
+    
+        .principal {
+            height: 100vh; /* Ajuste más proporcional para pantallas grandes */
+        }
+        
+        .lugares{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .lugares h1 {
+            width: 100%; /* Cambiado a 100% en lugar de 100vw para adaptarse al contenedor */
+        }
+    
+        .lugares div {
+            width: 70%; /* Reducir el ancho de las secciones */
+            height: 70vh; /* Tamaño más proporcional */
+        }
+    
+        .footer {
+            width: 100%; /* Ajustar el ancho al contenedor */
+            height: auto; /* Altura automática para evitar problemas de escalado */
+        }
+
+        .menu {
+            transform: translatex(-15%);
+            transition: none;
+            top: 0.3em;
+            left: 9em;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            background: transparent;
+          }
+
+          .menu li{
+            margin-left: 15px;
+          }
+         
+          #icono {
+            display: none;
+          }
+        
+    }
+    
