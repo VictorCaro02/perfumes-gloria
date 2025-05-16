@@ -24,6 +24,13 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/fontawesome/css/all.min.css">
     <script src="./assets/js/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        header{
+            position: fixed;
+        }
+        
+    </style>
 </head>
 <body>
 
@@ -41,7 +48,7 @@
         
             <section class="texto-abajo">
                 <p>Aromas que enamoran a precios que sorprenden. Inspirados en la alta gamma, pero con el sello de nuestra elaboración</p>
-                <a href="#" class="btn-primary">VER FRAGANCIAS</a>
+                <a href="./assets/lista.php" class="btn-primary">VER FRAGANCIAS</a>
             </section>
         </section>
 
@@ -51,11 +58,33 @@
                 <h1>La esencia de la calidad</h1>
                 <p>Nuestras fragancias están elaboradas con ingredientes de la más alta calidad, garantizando una experiencia olfativa inigualable</p>
                 
-                <div id="slideshow">
-                    <img src="./assets/images/ss1.jpg" alt="Slide 1">
-                    <img src="./assets/images/ss2.jpg" alt="Slide 2">
-                    <img src="./assets/images/ss3.jpg" alt="Slide 3">
+                <div class="slideshow-container">
+                    <div class="slide fade">
+                        <img src="./assets/images/ss1.jpg" alt="Imagen 1">
+                    </div>
+                    <div class="slide fade">
+                        <img src="./assets/images/ss2.jpg" alt="Imagen 2">
+                    </div>
+                    <div class="slide fade">
+                        <img src="./assets/images/ss3.jpg" alt="Imagen 3">
+                    </div>
+
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
                 </div>
+
+                <div class="slideshow-mobile">
+                     <div class="slide fade">
+                        <img src="./assets/images/fondo2.jpg" alt="Imagen de móvil 1">
+                    </div>
+                    <div class="slide fade">
+                        <img src="./assets/images/fondoDePrueba.jpeg" alt="Imagen de móvil 2">
+                    </div>
+                     
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
+
             </div>
         </section>
 
@@ -98,29 +127,61 @@
     include("./assets/plantillas/footer.php");
     ?>
     
-    <script>
-        $(document).ready(function () {
-            const $slides = $("#slideshow img"); // Selecciona todas las imágenes del slideshow
-            let currentSlide = 0;
 
-            // Función para mostrar el slide actual
-            function showSlide(index) {
-                $slides.removeClass("active"); // Oculta todas las imágenes
-                $slides.eq(index).addClass("active"); // Muestra la imagen actual
-            }
+        
+<script>
+let slideIndexPC = 0;
+let slideIndexMobile = 0;
+let slidesMobile = $(".slideshow-mobile .slide");
+let totalSlidesMobile = slidesMobile.length;
+let slidesPC = $(".slideshow-container .slide");
+let totalSlidesPC = slidesPC.length;
 
-            // Función para cambiar al siguiente slide
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % $slides.length; // Calcula el índice del siguiente slide
-                showSlide(currentSlide); // Muestra el siguiente slide
-            }
+function showSlidePC(n) {
+    slidesPC.hide().eq(n).fadeIn(600);
+}
 
-            // Cambia de slide cada 5 segundos
-            setInterval(nextSlide, 5000);
+function showSlideMobile(n) {
+    slidesMobile.hide().eq(n).fadeIn(600);
+}
 
-            // Muestra el primer slide al cargar la página
-            showSlide(currentSlide);
-        });
-    </script>
+function nextSlide() {
+    slideIndexPC = (slideIndexPC + 1) % totalSlidesPC;
+    showSlidePC(slideIndexPC);
+
+    slideIndexMobile = (slideIndexMobile + 1) % totalSlidesMobile;
+    showSlideMobile(slideIndexMobile);
+}
+
+function prevSlide() {
+    slideIndexPC = (slideIndexPC - 1 + totalSlidesPC) % totalSlidesPC;
+    showSlidePC(slideIndexPC);
+
+    slideIndexMobile = (slideIndexMobile - 1 + totalSlidesMobile) % totalSlidesMobile;
+    showSlideMobile(slideIndexMobile);
+}
+
+$(document).ready(function () {
+    showSlidePC(slideIndexPC);
+    showSlideMobile(slideIndexMobile);
+
+    let slideshowInterval = setInterval(nextSlide, 4000);
+
+    $(".next").click(function () {
+        nextSlide();
+        clearInterval(slideshowInterval);
+    });
+
+    $(".prev").click(function () {
+        prevSlide();
+        clearInterval(slideshowInterval);
+    });
+});
+</script>
+
+
+
+
+    
 </body>
 </html>

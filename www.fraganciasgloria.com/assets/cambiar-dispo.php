@@ -42,7 +42,7 @@ if(!isset($_SESSION["rol"])){
 	
 
 	    if(isset($_POST["cambiar"])){
-		    $cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
+		    $cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
 		    $miconsulta = $cbd->query("SELECT * FROM fragancias WHERE numref = '" .$_POST["numref"]."';");
 		    if($miconsulta->num_rows > 0){
 			    while($fila = $miconsulta->fetch_assoc()){

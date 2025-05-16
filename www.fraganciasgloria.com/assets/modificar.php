@@ -35,7 +35,7 @@ if(!isset($_SESSION["rol"])){
 	<h1>Introduce los datos de la fragancia a modificar</h1>
 	<form method="post">
 		<p>Número de referencia</p>
-		<input type="number" name="numref">
+		<input type="text" name="numref">
         <br>
 		<p>Nuevo número de referencia</p>
 		<input type="text" name="nuevoNumref">
@@ -52,12 +52,12 @@ if(!isset($_SESSION["rol"])){
 		<input type="submit" value="Modificar" name="modificar">
         <?php
     if(isset($_POST["modificar"])){
-		$cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
+		$cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
 		$miconsulta = $cbd->query("SELECT * FROM fragancias WHERE numref = '" .$_POST["numref"]."';");
 		if($miconsulta->num_rows > 0){
 			while($fila = $miconsulta->fetch_assoc()){
 				if($fila["numref"] == $_POST["numref"]){
-					$miconsulta2 = $cbd->query("UPDATE `fragancias` SET `numref`='".$_POST["nuevoNumref"]."',`nombre`='".$_POST["nombre"]."',`marca`='".$_POST["marca"]."',`genero`='".$_POST["genero"]."' WHERE numref = ".$_POST["numref"]."");
+					$miconsulta2 = $cbd->query('UPDATE `fragancias` SET `numref`="'.$_POST["nuevoNumref"].'",`nombre`="'.$_POST["nombre"].'",`marca`="'.$_POST["marca"].'",`genero`="'.$_POST["genero"].'" WHERE numref = "'.$_POST["numref"].'";');
 					echo "<p style='color:green'>Fragancia modificada con éxito</p>";
 				}
 			}

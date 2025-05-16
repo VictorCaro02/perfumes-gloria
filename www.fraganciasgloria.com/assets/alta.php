@@ -43,16 +43,16 @@ if(!isset($_SESSION["rol"])){
 	<input type="text" name="marca">
 	<p>Género</p>
 	<select name="genero" id="genero">
-                <option value="hombre">Hombre</option>
                 <option value="mujer">Mujer</option>
+				<option value="hombre">Hombre</option>
 				<option value="infantil">Infantil</option>
             </select>
 	<input type="submit" value="Dar de alta" name="alta">
 	<?php
 		if(isset($_POST["alta"])){
-			$cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
+			$cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
 			$miconsulta = $cbd->query("SELECT * FROM fragancias");
-			if($miconsulta->num_rows > 0){
+			if($miconsulta->num_rows >= 0){
 				while($fila = $miconsulta->fetch_assoc()){
 					if($fila["numref"] == $_POST["numref"]){
 						echo "<p style='color:red'>Ya existe una colonia con este número de referencia</p>";
