@@ -50,7 +50,13 @@ if(!isset($_SESSION["rol"])){
 	<input type="submit" value="Dar de alta" name="alta">
 	<?php
 		if(isset($_POST["alta"])){
-			$cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+if(empty($_POST["numref"]) || empty($_POST["nombre"])) {
+        echo "<p style='color:red'>Los campos 'Número de referencia' y 'Nombre' son obligatorios.</p>";
+    } else {
+        $cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+        if($cbd->connect_error){
+            die("Error de conexión: " . $cbd->connect_error);
+		};	
 			$miconsulta = $cbd->query("SELECT * FROM fragancias");
 			if($miconsulta->num_rows >= 0){
 				while($fila = $miconsulta->fetch_assoc()){
@@ -64,6 +70,7 @@ if(!isset($_SESSION["rol"])){
 				}
 			}
 		}
+	}
 	?>
 	</form>
 	</div>

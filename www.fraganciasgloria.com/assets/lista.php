@@ -125,7 +125,7 @@ $busqueda = trim($_GET['buscar'] ?? '');
 
 $where = "agotada = 0";
 if (!empty($busqueda)) {
-    $where .= " AND (nombre LIKE '%$busqueda%' OR marca LIKE '%$busqueda%')";
+    $where .= ' AND (nombre LIKE "%'.$busqueda.'%" OR marca LIKE "%'.$busqueda.'%")';
 }
 
 $femenino = "";
@@ -136,7 +136,7 @@ $total_registros = 0;
 if ($filtro_genero === 'mujer' || $filtro_genero === '') {
     $resFem = $cbd->query("SELECT * FROM fragancias WHERE genero = 'mujer' AND $where LIMIT $inicio, $registros_por_pagina");
     while ($fila = $resFem->fetch_assoc()) {
-        $femenino .= "<div class='fragancia'><span class='ref'>{$fila['numref']}</span> - <span class='nombre'>{$fila['nombre']}</span> - <span class='marca'>{$fila['marca']}</span></div>";
+        $femenino .= "<div class='fragancia'><span class='ref'>" . htmlspecialchars($fila['numref']) . "</span> - <span class='nombre'>" . htmlspecialchars($fila['nombre']) . "</span> - <span class='marca'>" . htmlspecialchars($fila['marca']) . "</span></div>";
     }
     $totalFem = $cbd->query("SELECT COUNT(*) AS total FROM fragancias WHERE genero = 'mujer' AND $where")->fetch_assoc()['total'];
     $total_registros = max($total_registros, $totalFem);
@@ -145,7 +145,7 @@ if ($filtro_genero === 'mujer' || $filtro_genero === '') {
 if ($filtro_genero === 'hombre' || $filtro_genero === '') {
     $resMasc = $cbd->query("SELECT * FROM fragancias WHERE genero = 'hombre' AND $where LIMIT $inicio, $registros_por_pagina");
     while ($fila = $resMasc->fetch_assoc()) {
-        $masculino .= "<div class='fragancia'><span class='ref'>{$fila['numref']}</span> - <span class='nombre'>{$fila['nombre']}</span> - <span class='marca'>{$fila['marca']}</span></div>";
+        $masculino .= "<div class='fragancia'><span class='ref'>" . htmlspecialchars($fila['numref']) . "</span> - <span class='nombre'>" . htmlspecialchars($fila['nombre']) . "</span> - <span class='marca'>" . htmlspecialchars($fila['marca']) . "</span></div>";
     }
     $totalMasc = $cbd->query("SELECT COUNT(*) AS total FROM fragancias WHERE genero = 'hombre' AND $where")->fetch_assoc()['total'];
     $total_registros = max($total_registros, $totalMasc);
