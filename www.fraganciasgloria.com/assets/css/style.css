@@ -511,6 +511,15 @@ a:visited{
     border-top: 10px solid #d05db1;
 }
 
+.botones-ant-sig{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
 .masculino {
     border-top: 10px solid #00aaff;
 }

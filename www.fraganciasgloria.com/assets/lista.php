@@ -31,7 +31,7 @@ session_start();
 		}
 		.columna {
 			width: 60%;
-            height: 23rem;
+            height: 30rem;
 			border: 2px solid black;
 			padding: 15px;
 			border-radius: 10px;
@@ -103,8 +103,10 @@ session_start();
 			from { opacity: 0; transform: translateY(-10px); }
 			to { opacity: 1; transform: translateY(0); }
 		}
-		@media only screen and (min-width: 1200px) {
-			.columna { width: 28%; }
+        
+		@media only screen and (min-width: 768px) {
+			.columna { width: 28%; height: 26rem;}
+
 		}
 	</style>
 </head>
@@ -114,7 +116,7 @@ session_start();
 require_once("./plantillas/segundo_header.php");
 echo "<br><br>";
 
-$cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");;
+$cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
 
 $registros_por_pagina = 10;
 $pagina = isset($_GET["pagina"]) ? intval($_GET["pagina"]) : 1;
@@ -187,9 +189,6 @@ $total_paginas = ceil($total_registros / $registros_por_pagina);
     </div>
 
     <div class="paginacion-botones">
-        <?php if($pagina > 1): ?>
-            <a class="boton-pagina" href="?pagina=<?= $pagina - 1 ?>&buscar=<?= urlencode($busqueda) ?>&genero=<?= $filtro_genero ?>">&laquo; Anterior</a>
-        <?php endif; ?>
         <?php for($i = 1; $i <= $total_paginas; $i++): ?>
             <?php if($i == $pagina): ?>
                 <span class="pagina-actual"><?= $i ?></span>
@@ -197,10 +196,17 @@ $total_paginas = ceil($total_registros / $registros_por_pagina);
                 <a class="boton-pagina" href="?pagina=<?= $i ?>&buscar=<?= urlencode($busqueda) ?>&genero=<?= $filtro_genero ?>"><?= $i ?></a>
             <?php endif; ?>
         <?php endfor; ?>
-        <?php if($pagina < $total_paginas): ?>
+       
+    </div>
+    <div class="botones-ant-sig">
+        <?php if($pagina > 1): ?>
+            <a class="boton-pagina" href="?pagina=<?= $pagina - 1 ?>&buscar=<?= urlencode($busqueda) ?>&genero=<?= $filtro_genero ?>">&laquo; Anterior</a>
+        <?php endif; ?>
+         <?php if($pagina < $total_paginas): ?>
             <a class="boton-pagina" href="?pagina=<?= $pagina + 1 ?>&buscar=<?= urlencode($busqueda) ?>&genero=<?= $filtro_genero ?>">Siguiente &raquo;</a>
         <?php endif; ?>
     </div>
+    
 </div>
 
 <?php require_once("./plantillas/footer.php"); ?>
