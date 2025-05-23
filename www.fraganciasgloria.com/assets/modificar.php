@@ -1,7 +1,7 @@
 <?php
 /*
  * 
- * Copyleft 2022 Pepe Sánchez 
+ * TFG Víctor Caro Fernández 2025
  *
  * 
  * 

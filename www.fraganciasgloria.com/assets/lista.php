@@ -62,6 +62,7 @@ session_start();
 			margin-bottom: 6px;
 			font-family: "Poppins", sans-serif;
 			font-size: 0.9rem;
+            color: black;
 		}
 		.ref { font-weight: 600; }
 
