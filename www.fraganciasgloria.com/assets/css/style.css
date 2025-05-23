@@ -442,9 +442,9 @@ a:visited{
 
 .alta {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
     flex-direction: column;
     min-height: 100vh;
     box-sizing: border-box;
@@ -555,14 +555,6 @@ a:visited{
 }
 
 /* FORMULARIOS - AJUSTADO Y COMPACTO */
-
-.alta {
-    display: flex;
-    justify-content:flex-start;
-    align-items: flex-start;
-    text-align: left;
-    flex-direction: column;
-}
 
 form {
     background-color: #fff;

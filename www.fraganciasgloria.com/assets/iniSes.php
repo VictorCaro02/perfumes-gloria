@@ -9,7 +9,7 @@ $mostrarRegistro = false;
 $registroExitoso = null;
 
 if(isset($_POST["iniSes"])){
-    $cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+    $cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
     if ($cbd->connect_error) {
         die("Error de conexión: " . $cbd->connect_error);
     }
@@ -44,7 +44,7 @@ if (isset($_POST["crearUsu"])) {
     $contrasena = $_POST["nueva_contrasena"];
     $foto = $_FILES['foto'];
 
-    $cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+    $cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
     if ($cbd->connect_error) {
         die("Error de conexión: " . $cbd->connect_error);
     }
@@ -100,6 +100,7 @@ if (isset($_POST["crearUsu"])) {
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link rel="icon" href="./images/colonia.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicia sesión</title>

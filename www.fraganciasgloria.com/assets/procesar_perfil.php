@@ -36,7 +36,7 @@ $_SESSION["email"] = $email;
 $_SESSION["usuario"] = $usuario;
 
 if(isset($_POST["cambiar"])){
-    $cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+    $cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
     if($cbd->connect_error){
       die("Error de conexión: " . $cbd->connect_error);
     }

@@ -4,6 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link rel="icon" href="./images/colonia.ico">
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Fragancias</title>
@@ -116,7 +117,7 @@ session_start();
 require_once("./plantillas/segundo_header.php");
 echo "<br><br>";
 
-$cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+$cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
 
 $registros_por_pagina = 10;
 $pagina = isset($_GET["pagina"]) ? intval($_GET["pagina"]) : 1;

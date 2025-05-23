@@ -22,7 +22,7 @@ if ($nueva !== $repetir) {
     exit;
 }
 
-$cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+$cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
 
 
 // Verificar contraseña actual

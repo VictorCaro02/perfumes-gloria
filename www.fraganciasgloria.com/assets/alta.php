@@ -11,15 +11,23 @@ if(!isset($_SESSION["rol"])){
 	header("Location:iniSes.php");
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-	<title>Altas de fragancias</title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<meta name="generator" content="Geany 1.38" />
-	<link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altas de fragancias</title>
+    <link rel="icon" href="./images/colonia.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fontawesome/css/all.min.css">
+    <script src="./js/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style>
 		header{
 			position: static;
@@ -33,7 +41,9 @@ if(!isset($_SESSION["rol"])){
 	require_once("./plantillas/segundo_header.php");
 	?>
 		<div class="alta">
+			<br>
 	<h1>FORMULARIO DE ALTA DE FRAGANCIAS</h1>
+	<br>
 	<form method="post">
 	<p>Número de referencia (PXNN)</p>
 	<input type="text" name="numref">
@@ -53,7 +63,7 @@ if(!isset($_SESSION["rol"])){
 if(empty($_POST["numref"]) || empty($_POST["nombre"])) {
         echo "<p style='color:red'>Los campos 'Número de referencia' y 'Nombre' son obligatorios.</p>";
     } else {
-        $cbd = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+        $cbd = new mysqli("localhost", "root", "", "perfumes_gloria");
         if($cbd->connect_error){
             die("Error de conexión: " . $cbd->connect_error);
 		};	

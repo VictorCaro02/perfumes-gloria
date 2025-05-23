@@ -3,7 +3,7 @@ if (isset($_POST["tipo"]) && isset($_POST["valor"])) {
     $tipo = $_POST["tipo"]; // 'email' o 'usuario'
     $valor = $_POST["valor"];
 
-    $conn = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+    $conn = new mysqli("localhost", "root", "", "perfumes_gloria");
     if ($conn->connect_error) {
         echo "error";
         exit;

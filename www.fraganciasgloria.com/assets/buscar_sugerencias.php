@@ -1,7 +1,7 @@
 <?php
 header("Content-Type: application/json");
 
-$mysqli = new mysqli("localhost", "u250246282_vicmusic02", "Corayvictor2002***", "u250246282_perfumesgloria");
+$mysqli = new mysqli("localhost", "root", "", "perfumes_gloria");
 $term = trim($_GET['term'] ?? '');
 $sugerencias = [];
 
