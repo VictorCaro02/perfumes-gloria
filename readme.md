@@ -5,18 +5,18 @@
 - **Sistema operativo:** Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
 - **Tipo de instancia:** t2.micro
 - **Región:** us-east-1b
-- **Nombre de la instancia:** [FraganciasGloria]
+- **Nombre de la instancia:** FraganciasGloria
 
 ## Red y acceso
 
-- **Dirección IP pública:** [3.228.126.96]
+- **Dirección IP pública:** 3.228.126.96
 - **Puerto HTTP (80):** abierto en grupo de seguridad
 - **Acceso SSH (22):** habilitado con clave privada `.pem`
 
 ## Claves y conexión SSH
 
-- **Tipo de clave:** [ED25519]
-- **Nombre del archivo `.pem`:** [clavestfg.pem]
+- **Tipo de clave:** ED25519
+- **Nombre del archivo `.pem`:** clavestfg.pem
 
 ## Configuración de la Base de Datos
 
